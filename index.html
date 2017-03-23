@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Главная</title>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
+	<link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+	<link rel="stylesheet" href ="style.css" media="all">
+	</head>
+<body>
+<div class="bg">
+	<div class="animation">
+		<div class="inner-menu">
+			<h1>Первое фотографическое агенство в стране</h1> 
+			<h3>Всю информацию о нас вы можете узнать по номеру 00000</h3>
+			<div class="button" onclick="hide()"> Ознакомиться с работами</div>
+		</div>
+		<img class="slide" src="img/1.jpg"/>
+		<img class="slide" src="img/2.jpg"/>
+		<img class="slide" src="img/3.jpg"/>
+		<img class="slide" src="img/4.jpg"/>
+		<img class="slide" src="img/an1.png"/>
+		<img class="btn" src="img/arrow2.png" onclick="indexPlus(-1)" />
+		<img class="btn" src="img/arrow1.png"  id="btn1" onclick="indexPlus(1)" />
+	</div>
+</div>
+<script>
+function hide(){
+var y = document.getElementsByClassName("inner-menu");
+var z = document.getElementsByClassName("btn");
+y[length].style.opacity="0";
+z[length].style.display="block";
+z[length+1].style.display="block";
+var x = document.getElementsByClassName("slide");
+x[4].style.opacity="0";
+}
+
+var index=0;
+function indexPlus(n){
+index=index+n;
+showImage(index);
+}
+
+showImage(index);
+function showImage(n){
+	var i;
+	var x = document.getElementsByClassName("slide");
+	if (index>x.length-1) {index=1}
+	if (index<1) {index=x.length-1}
+	for(i=0; i<x.length-1; i++)
+	{
+		x[i].style.opacity="0";
+	}
+	x[index-1].style.opacity="1";
+}
+autoSlide();
+function autoSlide(){
+	var i;
+	var x = document.getElementsByClassName("slide");
+	index=index+1;
+	if (index>x.length-1) {index=1}
+	if (index<1) {index=x.length-1}
+	for(i=0; i<x.length-1; i++)
+	{
+		x[i].style.opacity="0";
+	}
+	x[index-1].style.opacity="1";
+	
+	if (x[4].style.opacity!="0"){setTimeout(autoSlide, 3000)}
+	
+
+}
+</script>
+</body>
+</html>
