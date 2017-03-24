@@ -19,6 +19,9 @@
 		<img class="slide" src="img/2.jpg"/>
 		<img class="slide" src="img/3.jpg"/>
 		<img class="slide" src="img/4.jpg"/>
+		<img class="slide" src="img/5.jpg"/>
+		<img class="slide" src="img/6.jpg"/>
+		<img class="slide" src="img/7.jpg"/>
 		<img class="slide" src="img/an1.png"/>
 		<img class="btn" src="img/arrow2.png" onclick="indexPlus(-1)" />
 		<img class="btn" src="img/arrow1.png"  id="btn1" onclick="indexPlus(1)" />
@@ -32,7 +35,7 @@ y[length].style.opacity="0";
 z[length].style.display="block";
 z[length+1].style.display="block";
 var x = document.getElementsByClassName("slide");
-x[4].style.opacity="0";
+x[x.length-1].style.opacity="0";
 }
 
 var index=0;
@@ -66,7 +69,7 @@ function autoSlide(){
 	}
 	x[index-1].style.opacity="1";
 	
-	if (x[4].style.opacity!="0"){setTimeout(autoSlide, 3000)}
+	if (x[x.length-1].style.opacity!="0"){setTimeout(autoSlide, 3000)}
 	
 
 }
